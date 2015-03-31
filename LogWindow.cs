@@ -27,6 +27,7 @@ namespace Torrentizer
                 logBox.Items.Add(what);
                 ScrollControlIntoView(logBox);
             }
+            Application.DoEvents();
         }
     }
 }

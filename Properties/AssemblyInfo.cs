@@ -1,36 +1,37 @@
-ï»¿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// ObecnÃ© informace o sestavenÃ­ jsou Å™Ã­zeny prostÅ™ednictvÃ­m nÃ¡sledujÃ­cÃ­ 
-// sadu atributÅ¯. ZmÄ›nou hodnot tÄ›chto atributÅ¯ se upravÃ­ informace
-// pÅ™idruÅ¾enÃ© k sestavenÃ­.
+// Obecné informace o sestavení jsou øízeny prostøednictvím následující 
+// sadu atributù. Zmìnou hodnot tìchto atributù se upraví informace
+// pøidruené k sestavení.
 [assembly: AssemblyTitle("Torrentizer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Torrentizer")]
-[assembly: AssemblyCopyright("Copyright Â©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// NastavenÃ­ atributu ComVisible na hodnotu False udÄ›lÃ¡ typy v tomto sestavenÃ­ neviditelnÃ© 
-// komponent modelu COM.  Pokud potÅ™ebujete pÅ™istoupit k typu v tomto sestavenÃ­ z 
-// modelu COM, nastavte atribut ComVisible danÃ©ho typu na hodnotu True.
+// Nastavení atributu ComVisible na hodnotu False udìlá typy v tomto sestavení neviditelné 
+// komponent modelu COM.  Pokud potøebujete pøistoupit k typu v tomto sestavení z 
+// modelu COM, nastavte atribut ComVisible daného typu na hodnotu True.
 [assembly: ComVisible(false)]
 
-// NÃ¡sledujÃ­cÃ­ GUID je pouÅ¾ito pro ID knihovny typÅ¯, pokud je tento projekt vystaven COM
+// Následující GUID je pouito pro ID knihovny typù, pokud je tento projekt vystaven COM
 [assembly: Guid("30761b03-fa60-44b9-b3c9-f3fb216b83a0")]
 
-// Informace o verzi sestavenÃ­ se sklÃ¡dÃ¡ z nÃ¡sledujÃ­cÃ­ch ÄtyÅ™ hodnot:
+// Informace o verzi sestavení se skládá z následujících ètyø hodnot:
 //
-//      HlavnÃ­ verze
-//      DÃ­lÄÃ­ verze 
-//      ÄŒÃ­slo sestavenÃ­
+//      Hlavní verze
+//      Dílèí verze 
+//      Èíslo sestavení
 //      Revize
 //
-// MÅ¯Å¾ete zadat vÅ¡echny hodnoty nebo nastavit vÃ½chozÃ­ oÄÃ­slovÃ¡nÃ­ sestavenÃ­ a revize 
-// pouÅ¾itÃ­m znaku '*' jak je ukÃ¡zÃ¡no dÃ¡le:
+// Mùete zadat všechny hodnoty nebo nastavit vıchozí oèíslování sestavení a revize 
+// pouitím znaku '*' jak je ukázáno dále:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("$MajorVersion$.$MinorVersion$.$Revision$.$Commit$")]
+[assembly: AssemblyFileVersion("$MajorVersion$.$MinorVersion$.$Revision$.$Commit$")]
+[assembly: AssemblyInformationalVersion("$Branch$:$MajorVersion$.$MinorVersion$.$Revision$-$Commit$-$ShortHash$")]

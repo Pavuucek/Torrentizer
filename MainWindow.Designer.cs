@@ -131,6 +131,7 @@
             this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Vytvořit torrent";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // textTrackers
             // 
