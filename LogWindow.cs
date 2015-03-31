@@ -20,6 +20,7 @@ namespace Torrentizer
 
         public void Log(string what)
         {
+            what = DateTime.Now + " " + what;
             if (AddToTop) logBox.Items.Insert(0, what);
             else
             {
