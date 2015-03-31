@@ -19,6 +19,8 @@ namespace Torrentizer
             InitializeComponent();
         }
 
+        public LogWindow Log = new LogWindow();
+
         private void button1_Click(object sender, EventArgs e)
         {
             var t = new TorrentCreator();
@@ -35,6 +37,23 @@ namespace Torrentizer
             soubory.TorrentName = "bezejmeeeeenaaaaaa";
             t.Create(soubory, "a.torrent");
             MessageBox.Show("a");
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            Log.Log("App Startup: " + DateTime.Now);
+        }
+
+        private void MainWindow_Shown(object sender, EventArgs e)
+        {
+            Log.Show();
+            Log.Log("show");
+        }
+
+        private void MainWindow_Move(object sender, EventArgs e)
+        {
+            Log.Left = Right; //Left + Width;
+            Log.Top = Top;
         }
     }
 }
