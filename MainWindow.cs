@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using MonoTorrent;
 using MonoTorrent.BEncoding;
@@ -16,12 +10,14 @@ namespace Torrentizer
 {
     public partial class MainWindow : Form
     {
+        private string _lastHashedFile = string.Empty;
+        private TorrentCreator _t;
+        public readonly LogWindow Log = new LogWindow();
+
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        public LogWindow Log = new LogWindow();
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -64,7 +60,7 @@ namespace Torrentizer
                 number = 0;
             }
             var justUnits = string.Empty;
-            foreach (char c in inText)
+            foreach (var c in inText)
             {
                 if (!char.IsNumber(c)) justUnits += c;
             }
@@ -83,8 +79,6 @@ namespace Torrentizer
             return number;
         }
 
-        
-        private TorrentCreator _t;
         private void btnCreate_Click(object sender, EventArgs e)
         {
             // checks first
@@ -93,7 +87,7 @@ namespace Torrentizer
                 MessageBox.Show("Musíte zvolit soubor nebo složku ze které chcete vytvořit torrent!");
                 return;
             }
-            if(string.IsNullOrWhiteSpace(textTrackers.Text))
+            if (string.IsNullOrWhiteSpace(textTrackers.Text))
             {
                 MessageBox.Show("Musí být zadána adresa alespoň jednoho trackeru!");
                 return;
@@ -118,7 +112,7 @@ namespace Torrentizer
             if (!string.IsNullOrWhiteSpace(textRss.Text))
                 _t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
             // related: web
-            if(!string.IsNullOrWhiteSpace(textWeb.Text))
+            if (!string.IsNullOrWhiteSpace(textWeb.Text))
                 _t.SetCustom(new BEncodedString("website"), new BEncodedString(textWeb.Text));
             // related: similar torrents
             if (!string.IsNullOrWhiteSpace(textRelatedTorrents.Text))
@@ -126,7 +120,7 @@ namespace Torrentizer
             // trackers
             foreach (var line in textTrackers.Lines)
             {
-                _t.Announces.Add(new RawTrackerTier(new string[] {line}));
+                _t.Announces.Add(new RawTrackerTier(new[] {line}));
             }
             // webseeds
             if (!string.IsNullOrWhiteSpace(textWebSeeds.Text))
@@ -149,21 +143,20 @@ namespace Torrentizer
             // not sure what this does...
             _t.StoreMD5 = true;
 
-            
+
             //soubory.TorrentName = "bezejmeeeeenaaaaaa";
             _t.Hashed += t_Hashed;
             Log.Log("Hashing...");
             _t.BeginCreate(soubory, AfterHashing, null);
         }
 
-        private string _LastHashedFile = string.Empty;
-
-        void t_Hashed(object sender, TorrentCreatorEventArgs e)
+        private void t_Hashed(object sender, TorrentCreatorEventArgs e)
         {
-            if (e.CurrentFile != _LastHashedFile)
+            if (e.CurrentFile != _lastHashedFile)
                 Log.Invoke((MethodInvoker) (() =>
                 {
                     Log.Log(string.Format("Hashing file {0}", e.CurrentFile));
+                    _lastHashedFile = e.CurrentFile;
                 }));
             /*Log.Invoke((MethodInvoker)(() =>
             {
@@ -174,7 +167,6 @@ namespace Torrentizer
                 Log.Log(string.Format("Total data to hash: {0}", e.OverallSize));
             }));*/
             progressBar1.Invoke((MethodInvoker) (() => { progressBar1.Value = (int) e.OverallCompletion; }));
-
         }
 
         private void AfterHashing(IAsyncResult ar)
@@ -185,13 +177,14 @@ namespace Torrentizer
             }
             catch (Exception ex)
             {
-                Log.Invoke((MethodInvoker) (() =>
-                {
-                    Log.Log(string.Format("Error creating torrent: {0}", ex));
-                }));
+                Log.Invoke((MethodInvoker) (() => { Log.Log(string.Format("Error creating torrent: {0}", ex)); }));
             }
-            Enabled = true;
-            MessageBox.Show("Hotovo!");
+            Invoke((MethodInvoker) (() =>
+            {
+                Log.Log("Finished creating torrent!");
+                Enabled = true;
+                MessageBox.Show("Hotovo!");
+            }));
         }
 
         private void buttonAddFile_Click(object sender, EventArgs e)
