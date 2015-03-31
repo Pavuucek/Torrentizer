@@ -1,0 +1,4 @@
+[submodule "monotorrent"]
+	path = monotorrent
+	url = https://github.com/mono/monotorrent
+	branch = master
