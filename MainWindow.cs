@@ -87,11 +87,33 @@ namespace Torrentizer
         private TorrentCreator _t;
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            // checks first
+            if (string.IsNullOrWhiteSpace(comboAdd.Text))
+            {
+                MessageBox.Show("Musíte zvolit soubor nebo složku ze které chcete vytvořit torrent!");
+                return;
+            }
+            if(string.IsNullOrWhiteSpace(textTrackers.Text))
+            {
+                MessageBox.Show("Musí být zadána adresa alespoň jednoho trackeru!");
+                return;
+            }
+            // try to guess torrent name and add .torrent extension
+            var soubory = new TorrentFileSource(comboAdd.Text);
+            dialogSaveTorrent.FileName = soubory.TorrentName + ".torrent";
+            // prompt to save torrent
+            if (dialogSaveTorrent.ShowDialog() != DialogResult.OK) return;
+            // we want user to wait patiently so disable everything
+            Enabled = false;
+            // let's go!
+            Log.Log("Creating torrent " + dialogSaveTorrent.FileName);
             _t = new TorrentCreator();
             _t.CreatedBy = Application.ProductName + " " + Application.ProductName;
             // is private?
             _t.Private = checkPrivate.Checked;
-            if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text)
+            if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text);
+            else _t.PieceLength = TorrentCreator.RecommendedPieceSize(soubory.Files);
+            Log.Log(string.Format("Piece length: {0}", _t.PieceLength));
             // related: RSS
             if (!string.IsNullOrWhiteSpace(textRss.Text))
                 _t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
@@ -127,20 +149,22 @@ namespace Torrentizer
             // not sure what this does...
             _t.StoreMD5 = true;
 
-            var soubory = new TorrentFileSource("d:\\xx\\dht.dat");
+            
             //soubory.TorrentName = "bezejmeeeeenaaaaaa";
             _t.Hashed += t_Hashed;
             Log.Log("Hashing...");
-            _t.Create(soubory, "a.torrent");
+            _t.BeginCreate(soubory, AfterHashing, null);
         }
+
+        private string _LastHashedFile = string.Empty;
 
         void t_Hashed(object sender, TorrentCreatorEventArgs e)
         {
-
-            Log.Invoke((MethodInvoker) (() =>
-            {
-                Log.Log(string.Format("Hashing file {0}", e.CurrentFile));
-            }));
+            if (e.CurrentFile != _LastHashedFile)
+                Log.Invoke((MethodInvoker) (() =>
+                {
+                    Log.Log(string.Format("Hashing file {0}", e.CurrentFile));
+                }));
             /*Log.Invoke((MethodInvoker)(() =>
             {
                 Log.Log(string.Format("Overall {0}% hashed", e.OverallCompletion));
@@ -153,11 +177,11 @@ namespace Torrentizer
 
         }
 
-        private void CreateProgress(IAsyncResult ar)
+        private void AfterHashing(IAsyncResult ar)
         {
             try
             {
-                using (var stream = File.OpenWrite("a.torrent")) _t.EndCreate(ar, stream);
+                using (var stream = File.OpenWrite(dialogSaveTorrent.FileName)) _t.EndCreate(ar, stream);
             }
             catch (Exception ex)
             {
@@ -166,6 +190,18 @@ namespace Torrentizer
                     Log.Log(string.Format("Error creating torrent: {0}", ex));
                 }));
             }
+            Enabled = true;
+            MessageBox.Show("Hotovo!");
+        }
+
+        private void buttonAddFile_Click(object sender, EventArgs e)
+        {
+            if (dialogAddFile.ShowDialog() == DialogResult.OK) comboAdd.Text = dialogAddFile.FileName;
+        }
+
+        private void buttonAddFolder_Click(object sender, EventArgs e)
+        {
+            if (dialogAddFolder.ShowDialog() == DialogResult.OK) comboAdd.Text = dialogAddFolder.SelectedPath;
         }
     }
 }

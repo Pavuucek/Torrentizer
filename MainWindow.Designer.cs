@@ -53,6 +53,9 @@
             this.textSkip = new System.Windows.Forms.TextBox();
             this.textComment = new System.Windows.Forms.TextBox();
             this.comboAdd = new System.Windows.Forms.ComboBox();
+            this.dialogAddFile = new System.Windows.Forms.OpenFileDialog();
+            this.dialogAddFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.dialogSaveTorrent = new System.Windows.Forms.SaveFileDialog();
             this.groupSource.SuspendLayout();
             this.groupTrackers.SuspendLayout();
             this.groupWebSeeds.SuspendLayout();
@@ -264,8 +267,9 @@
             this.buttonAddFile.Name = "buttonAddFile";
             this.buttonAddFile.Size = new System.Drawing.Size(121, 23);
             this.buttonAddFile.TabIndex = 1;
-            this.buttonAddFile.Text = "Přidat soubor";
+            this.buttonAddFile.Text = "Vybrat soubor";
             this.buttonAddFile.UseVisualStyleBackColor = true;
+            this.buttonAddFile.Click += new System.EventHandler(this.buttonAddFile_Click);
             // 
             // buttonAddFolder
             // 
@@ -273,8 +277,9 @@
             this.buttonAddFolder.Name = "buttonAddFolder";
             this.buttonAddFolder.Size = new System.Drawing.Size(121, 23);
             this.buttonAddFolder.TabIndex = 2;
-            this.buttonAddFolder.Text = "Přidat složku";
+            this.buttonAddFolder.Text = "Vybrat složku";
             this.buttonAddFolder.UseVisualStyleBackColor = true;
+            this.buttonAddFolder.Click += new System.EventHandler(this.buttonAddFolder_Click);
             // 
             // labelSkip
             // 
@@ -308,6 +313,18 @@
             this.comboAdd.Name = "comboAdd";
             this.comboAdd.Size = new System.Drawing.Size(421, 21);
             this.comboAdd.TabIndex = 0;
+            // 
+            // dialogAddFile
+            // 
+            this.dialogAddFile.Filter = "Všechny soubory|*.*";
+            // 
+            // dialogAddFolder
+            // 
+            this.dialogAddFolder.ShowNewFolderButton = false;
+            // 
+            // dialogSaveTorrent
+            // 
+            this.dialogSaveTorrent.Filter = "Torrenty|*.torrent|Všechny soubory|*.*";
             // 
             // MainWindow
             // 
@@ -372,6 +389,9 @@
         private System.Windows.Forms.TextBox textWeb;
         private System.Windows.Forms.GroupBox groupComment;
         private System.Windows.Forms.TextBox textComment;
+        private System.Windows.Forms.OpenFileDialog dialogAddFile;
+        private System.Windows.Forms.FolderBrowserDialog dialogAddFolder;
+        private System.Windows.Forms.SaveFileDialog dialogSaveTorrent;
 
 
     }
