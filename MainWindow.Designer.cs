@@ -1,6 +1,6 @@
 ﻿namespace Torrentizer
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Vyžadovaná proměnná návrháře.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MainWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "MainWindow";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
