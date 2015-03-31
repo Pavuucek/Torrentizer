@@ -48,6 +48,7 @@ namespace Torrentizer
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             Log.Log("App Startup");
         }
 

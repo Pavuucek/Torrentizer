@@ -121,14 +121,14 @@
             this.progressBar1.Location = new System.Drawing.Point(7, 336);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(711, 23);
-            this.progressBar1.TabIndex = 4;
+            this.progressBar1.TabIndex = 7;
             // 
             // btnCreate
             // 
             this.btnCreate.Location = new System.Drawing.Point(724, 336);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(121, 23);
-            this.btnCreate.TabIndex = 5;
+            this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Vytvořit torrent";
             this.btnCreate.UseVisualStyleBackColor = true;
             // 
@@ -163,7 +163,7 @@
             this.comboPieceLength.Location = new System.Drawing.Point(272, 19);
             this.comboPieceLength.Name = "comboPieceLength";
             this.comboPieceLength.Size = new System.Drawing.Size(121, 21);
-            this.comboPieceLength.TabIndex = 0;
+            this.comboPieceLength.TabIndex = 1;
             // 
             // labelPieceLength
             // 
@@ -171,7 +171,7 @@
             this.labelPieceLength.Location = new System.Drawing.Point(7, 26);
             this.labelPieceLength.Name = "labelPieceLength";
             this.labelPieceLength.Size = new System.Drawing.Size(76, 13);
-            this.labelPieceLength.TabIndex = 1;
+            this.labelPieceLength.TabIndex = 0;
             this.labelPieceLength.Text = "Velikost bloku:";
             // 
             // checkPrivate
@@ -195,7 +195,7 @@
             this.groupRelated.Location = new System.Drawing.Point(452, 93);
             this.groupRelated.Name = "groupRelated";
             this.groupRelated.Size = new System.Drawing.Size(399, 155);
-            this.groupRelated.TabIndex = 6;
+            this.groupRelated.TabIndex = 4;
             this.groupRelated.TabStop = false;
             this.groupRelated.Text = "Související:";
             // 
@@ -205,7 +205,7 @@
             this.groupComment.Location = new System.Drawing.Point(452, 259);
             this.groupComment.Name = "groupComment";
             this.groupComment.Size = new System.Drawing.Size(399, 71);
-            this.groupComment.TabIndex = 7;
+            this.groupComment.TabIndex = 5;
             this.groupComment.TabStop = false;
             this.groupComment.Text = "Komentář:";
             // 
@@ -214,14 +214,14 @@
             this.textWeb.Location = new System.Drawing.Point(6, 34);
             this.textWeb.Name = "textWeb";
             this.textWeb.Size = new System.Drawing.Size(387, 20);
-            this.textWeb.TabIndex = 0;
+            this.textWeb.TabIndex = 1;
             // 
             // textRss
             // 
             this.textRss.Location = new System.Drawing.Point(6, 77);
             this.textRss.Name = "textRss";
             this.textRss.Size = new System.Drawing.Size(384, 20);
-            this.textRss.TabIndex = 1;
+            this.textRss.TabIndex = 3;
             // 
             // labelWeb
             // 
@@ -229,7 +229,7 @@
             this.labelWeb.Location = new System.Drawing.Point(7, 18);
             this.labelWeb.Name = "labelWeb";
             this.labelWeb.Size = new System.Drawing.Size(33, 13);
-            this.labelWeb.TabIndex = 2;
+            this.labelWeb.TabIndex = 0;
             this.labelWeb.Text = "Web:";
             // 
             // labelRss
@@ -238,7 +238,7 @@
             this.labelRss.Location = new System.Drawing.Point(7, 61);
             this.labelRss.Name = "labelRss";
             this.labelRss.Size = new System.Drawing.Size(32, 13);
-            this.labelRss.TabIndex = 3;
+            this.labelRss.TabIndex = 2;
             this.labelRss.Text = "RSS:";
             // 
             // labelRelatedTorrents
@@ -247,7 +247,7 @@
             this.labelRelatedTorrents.Location = new System.Drawing.Point(7, 100);
             this.labelRelatedTorrents.Name = "labelRelatedTorrents";
             this.labelRelatedTorrents.Size = new System.Drawing.Size(91, 13);
-            this.labelRelatedTorrents.TabIndex = 5;
+            this.labelRelatedTorrents.TabIndex = 4;
             this.labelRelatedTorrents.Text = "Podobné torrenty:";
             // 
             // textRelatedTorrents
@@ -255,14 +255,14 @@
             this.textRelatedTorrents.Location = new System.Drawing.Point(6, 116);
             this.textRelatedTorrents.Name = "textRelatedTorrents";
             this.textRelatedTorrents.Size = new System.Drawing.Size(384, 20);
-            this.textRelatedTorrents.TabIndex = 4;
+            this.textRelatedTorrents.TabIndex = 5;
             // 
             // buttonAddFile
             // 
             this.buttonAddFile.Location = new System.Drawing.Point(6, 45);
             this.buttonAddFile.Name = "buttonAddFile";
             this.buttonAddFile.Size = new System.Drawing.Size(121, 23);
-            this.buttonAddFile.TabIndex = 2;
+            this.buttonAddFile.TabIndex = 1;
             this.buttonAddFile.Text = "Přidat soubor";
             this.buttonAddFile.UseVisualStyleBackColor = true;
             // 
@@ -271,7 +271,7 @@
             this.buttonAddFolder.Location = new System.Drawing.Point(306, 45);
             this.buttonAddFolder.Name = "buttonAddFolder";
             this.buttonAddFolder.Size = new System.Drawing.Size(121, 23);
-            this.buttonAddFolder.TabIndex = 3;
+            this.buttonAddFolder.TabIndex = 2;
             this.buttonAddFolder.Text = "Přidat složku";
             this.buttonAddFolder.UseVisualStyleBackColor = true;
             // 
@@ -281,7 +281,7 @@
             this.labelSkip.Location = new System.Drawing.Point(8, 77);
             this.labelSkip.Name = "labelSkip";
             this.labelSkip.Size = new System.Drawing.Size(55, 13);
-            this.labelSkip.TabIndex = 5;
+            this.labelSkip.TabIndex = 3;
             this.labelSkip.Text = "Přeskočit:";
             // 
             // textSkip
@@ -306,7 +306,7 @@
             this.comboAdd.Location = new System.Drawing.Point(6, 20);
             this.comboAdd.Name = "comboAdd";
             this.comboAdd.Size = new System.Drawing.Size(421, 21);
-            this.comboAdd.TabIndex = 1;
+            this.comboAdd.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -321,7 +321,9 @@
             this.Controls.Add(this.groupWebSeeds);
             this.Controls.Add(this.groupTrackers);
             this.Controls.Add(this.groupSource);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Torrentizer - Jednoduše vytvoří nový torrent";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Shown += new System.EventHandler(this.MainWindow_Shown);
