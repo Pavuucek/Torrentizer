@@ -26,19 +26,22 @@ namespace Torrentizer
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            Log.Log("App Startup");
+            Log.AddToTop = false;
+            Log.Log(string.Format("App Startup, version {0}", Application.ProductVersion));
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
         {
+#if(DEBUG)
             Log.Show();
+#endif
             Focus();
             comboPieceLength.SelectedIndex = 0;
         }
 
         private void MainWindow_Move(object sender, EventArgs e)
         {
-            Log.Left = Right; //Left + Width;
+            Log.Left = Right;
             Log.Top = Top;
         }
 
@@ -80,45 +83,65 @@ namespace Torrentizer
             return number;
         }
 
-        private IAsyncResult ars;
-        private TorrentCreator t=new TorrentCreator();
+        
+        private TorrentCreator _t;
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            //var t = new TorrentCreator();
-            t.CreatedBy = "torrentizer pyčo!";
-            t.SetCustom(new BEncodedString("rss"), new BEncodedString("rsssurl"));
-            t.SetCustom(new BEncodedString("url-list"),
-                new BEncodedList()
+            _t = new TorrentCreator();
+            _t.CreatedBy = Application.ProductName + " " + Application.ProductName;
+            // is private?
+            _t.Private = checkPrivate.Checked;
+            if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text)
+            // related: RSS
+            if (!string.IsNullOrWhiteSpace(textRss.Text))
+                _t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
+            // related: web
+            if(!string.IsNullOrWhiteSpace(textWeb.Text))
+                _t.SetCustom(new BEncodedString("website"), new BEncodedString(textWeb.Text));
+            // related: similar torrents
+            if (!string.IsNullOrWhiteSpace(textRelatedTorrents.Text))
+                _t.SetCustom(new BEncodedString("similar_torrents"), new BEncodedString(textRelatedTorrents.Text));
+            // trackers
+            foreach (var line in textTrackers.Lines)
+            {
+                _t.Announces.Add(new RawTrackerTier(new string[] {line}));
+            }
+            // webseeds
+            if (!string.IsNullOrWhiteSpace(textWebSeeds.Text))
+            {
+                var be = new BEncodedList();
+                foreach (var line in textWebSeeds.Lines)
                 {
-                    new BEncodedString("webseed1"),
-                    new BEncodedString("webseed2"),
-                    new BEncodedString("webseeeeeeeed3")
-                });
-            t.Comment = "komment pyčo!";
-            t.PieceLength = 128 * 1024;
-            t.Publisher = "publisher";
-            t.StoreMD5 = true;
-            t.Announces.Add(new RawTrackerTier(new string[] { "tier1.anounce1", "tier1.nounce2" }));
-            t.Announces.Add(new RawTrackerTier(new string[] { "tier2.announce1" }));
+                    be.Add(new BEncodedString(line));
+                }
+                _t.SetCustom(new BEncodedString("url-list"), be);
+            }
+            // comment
+            if (!string.IsNullOrWhiteSpace(textComment.Text)) _t.Comment = textComment.Text;
+            // publisher, example: Michal via Torrentizer version 1.0.0.0
+            _t.Publisher = string.Format("{0} via {1} version {2}",
+                Environment.UserName, Application.ProductName,
+                Application.ProductVersion);
+            // shameless ad goes here:
+            _t.PublisherUrl = "http://github.com/pavuucek/Torrentizer";
+            // not sure what this does...
+            _t.StoreMD5 = true;
 
             var soubory = new TorrentFileSource("d:\\xx\\dht.dat");
-            soubory.TorrentName = "bezejmeeeeenaaaaaa";
-            t.Hashed += t_Hashed;
-            Log.Log("hashishing");
-            t.Create(soubory, "a.torrent");
-            //ars=t.BeginCreate(soubory, CreateProgress, null);
-
-            MessageBox.Show("a");
+            //soubory.TorrentName = "bezejmeeeeenaaaaaa";
+            _t.Hashed += t_Hashed;
+            Log.Log("Hashing...");
+            _t.Create(soubory, "a.torrent");
         }
 
         void t_Hashed(object sender, TorrentCreatorEventArgs e)
         {
-            
-            /*Log.Invoke((MethodInvoker) (() =>
+
+            Log.Invoke((MethodInvoker) (() =>
             {
-                Log.Log(string.Format("Current File is {0}% hashed", e.FileCompletion));
+                Log.Log(string.Format("Hashing file {0}", e.CurrentFile));
             }));
-            Log.Invoke((MethodInvoker)(() =>
+            /*Log.Invoke((MethodInvoker)(() =>
             {
                 Log.Log(string.Format("Overall {0}% hashed", e.OverallCompletion));
             }));
@@ -132,11 +155,9 @@ namespace Torrentizer
 
         private void CreateProgress(IAsyncResult ar)
         {
-            //TorrentCreator tr = (TorrentCreator)ar.AsyncState;
-            //TorrentCreator ta = (TorrentCreator) ars.AsyncState;
             try
             {
-                using (FileStream stream = File.OpenWrite("a.torrent")) t.EndCreate(ar, stream);
+                using (var stream = File.OpenWrite("a.torrent")) _t.EndCreate(ar, stream);
             }
             catch (Exception ex)
             {

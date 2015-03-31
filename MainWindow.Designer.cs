@@ -142,7 +142,7 @@
             this.textTrackers.Size = new System.Drawing.Size(427, 81);
             this.textTrackers.TabIndex = 0;
             this.textTrackers.Text = "udp://tracker.openbittorrent.com:80/announce\r\nudp://tracker.publicbt.com:80/annou" +
-    "nce";
+    "nce\r\nudp://tracker.ccc.de:80/announce";
             // 
             // comboPieceLength
             // 
