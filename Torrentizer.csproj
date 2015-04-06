@@ -87,13 +87,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="monotorrent\src\MonoTorrent\MonoTorrent.csproj">
+    <Content Include="Megabyte Minion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="External\monotorrent\src\MonoTorrent\MonoTorrent.csproj">
       <Project>{411a9e0e-fdc6-4e25-828a-0c2cd1cd96f8}</Project>
       <Name>MonoTorrent</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Megabyte Minion.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
