@@ -1,7 +1,3 @@
-[submodule "monotorrent"]
-	path = monotorrent
-	url = https://github.com/mono/monotorrent
-	branch = master
 [submodule "External/monotorrent"]
 	path = External/monotorrent
 	url = https://github.com/mono/monotorrent
