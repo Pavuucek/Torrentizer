@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="c065d2cf-65f3-4852-88e9-d077c2d3cfbb" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
+  <name>Torrentizer</name>
+  <parameters />
+  <cleanup />
+</project>
+
