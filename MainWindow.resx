@@ -209,8 +209,8 @@
   <data name="checkPrivate.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;groupSource.Name" xml:space="preserve">
-    <value>groupSource</value>
+  <data name="labelRelatedTorrents.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;checkPrivate.Parent" xml:space="preserve">
     <value>groupProperties</value>
@@ -218,8 +218,8 @@
   <data name="groupProperties.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupTrackers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 100</value>
   </data>
   <data name="&gt;&gt;textRss.Name" xml:space="preserve">
     <value>textRss</value>
@@ -232,6 +232,9 @@
   </data>
   <data name="&gt;&gt;textRss.Parent" xml:space="preserve">
     <value>groupRelated</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupRelated.Text" xml:space="preserve">
     <value>Related:</value>
@@ -264,7 +267,7 @@
     <value>labelRelatedTorrents</value>
   </data>
   <data name="dialogAddFile.Filter" xml:space="preserve">
-    <value>Všechny soubory|*.*</value>
+    <value>All Files|*.*</value>
   </data>
   <data name="groupSource.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -286,9 +289,6 @@
   </data>
   <data name="&gt;&gt;groupRelated.Name" xml:space="preserve">
     <value>groupRelated</value>
-  </data>
-  <data name="labelRelatedTorrents.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
   </data>
   <data name="labelRelatedTorrents.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 13</value>
@@ -351,6 +351,9 @@
   <data name="&gt;&gt;textSkip.Parent" xml:space="preserve">
     <value>groupSource</value>
   </data>
+  <data name="&gt;&gt;textWebSeeds.Parent" xml:space="preserve">
+    <value>groupWebSeeds</value>
+  </data>
   <data name="&gt;&gt;groupComment.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -408,8 +411,8 @@
   <data name="textTrackers.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;comboPieceLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkPrivate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 24</value>
   </data>
   <data name="&gt;&gt;labelRss.Name" xml:space="preserve">
     <value>labelRss</value>
@@ -518,6 +521,9 @@ udp://tracker.ccc.de:80/announce</value>
   <data name="&gt;&gt;comboAdd.Name" xml:space="preserve">
     <value>comboAdd</value>
   </data>
+  <data name="&gt;&gt;groupSource.Name" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
   <data name="comboPieceLength.Items10" xml:space="preserve">
     <value>8 MB</value>
   </data>
@@ -543,7 +549,7 @@ udp://tracker.ccc.de:80/announce</value>
     <value>$this</value>
   </data>
   <data name="dialogSaveTorrent.Filter" xml:space="preserve">
-    <value>Torrenty|*.torrent|Všechny soubory|*.*</value>
+    <value>Torrents|*.torrent|All Files|*.*</value>
   </data>
   <data name="labelRss.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 61</value>
@@ -589,9 +595,6 @@ udp://tracker.ccc.de:80/announce</value>
   </data>
   <data name="textWeb.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="groupTrackers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>433, 100</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainWindow</value>
@@ -640,9 +643,6 @@ udp://tracker.ccc.de:80/announce</value>
   </data>
   <data name="&gt;&gt;buttonAddFile.Parent" xml:space="preserve">
     <value>groupSource</value>
-  </data>
-  <data name="&gt;&gt;groupRelated.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;groupWebSeeds.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -713,8 +713,8 @@ udp://tracker.ccc.de:80/announce</value>
   <data name="comboPieceLength.Items7" xml:space="preserve">
     <value>1 MB</value>
   </data>
-  <data name="&gt;&gt;textWebSeeds.Parent" xml:space="preserve">
-    <value>groupWebSeeds</value>
+  <data name="&gt;&gt;comboPieceLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelSkip.Parent" xml:space="preserve">
     <value>groupSource</value>
@@ -800,8 +800,8 @@ udp://tracker.ccc.de:80/announce</value>
   <data name="groupSource.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 11</value>
   </data>
-  <data name="checkPrivate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 24</value>
+  <data name="&gt;&gt;groupRelated.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="labelWeb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

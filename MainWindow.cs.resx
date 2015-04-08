@@ -166,6 +166,12 @@
   <data name="groupComment.Text" xml:space="preserve">
     <value>Komentář:</value>
   </data>
+  <data name="dialogAddFile.Filter" xml:space="preserve">
+    <value>Všechny soubory|*.*</value>
+  </data>
+  <data name="dialogSaveTorrent.Filter" xml:space="preserve">
+    <value>Torrenty|*.torrent|Všechny soubory|*.*</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Torrentizer - Jednoduše vytvoří nový torrent</value>
   </data>
