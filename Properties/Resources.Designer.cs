@@ -61,7 +61,7 @@ namespace Torrentizer.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Hotovo!.
+        ///   Vyhledá lokalizovaný řetězec podobný Torrent Created!.
         /// </summary>
         internal static string MainWindow_AfterHashing_TorrentCreated {
             get {
@@ -70,7 +70,7 @@ namespace Torrentizer.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Musí být zadána adresa alespoň jednoho trackeru!.
+        ///   Vyhledá lokalizovaný řetězec podobný At least one tracker address is required!.
         /// </summary>
         internal static string MainWindow_btnCreate_Click_AtLeastOneTrackerRequired {
             get {
@@ -79,7 +79,7 @@ namespace Torrentizer.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Musíte zvolit soubor nebo složku ze které chcete vytvořit torrent!.
+        ///   Vyhledá lokalizovaný řetězec podobný You must select a file or a folder to create a torrent from!.
         /// </summary>
         internal static string MainWindow_btnCreate_Click_SelectFileOrFolder {
             get {
