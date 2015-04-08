@@ -117,13 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MainWindow_btnCreate_Click_SelectFileOrFolder" xml:space="preserve">
-    <value>You must select a file or a folder to create a torrent from!</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labelSkip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
   </data>
-  <data name="MainWindow_btnCreate_Click_AtLeastOneTrackerRequired" xml:space="preserve">
-    <value>At least one tracker address is required!</value>
+  <data name="labelSkip.Text" xml:space="preserve">
+    <value>Přeskočit:</value>
   </data>
-  <data name="MainWindow_AfterHashing_TorrentCreated" xml:space="preserve">
-    <value>Torrent Created!</value>
+  <data name="buttonAddFolder.Text" xml:space="preserve">
+    <value>Vybrat složku</value>
+  </data>
+  <data name="buttonAddFile.Text" xml:space="preserve">
+    <value>Vybrat soubor</value>
+  </data>
+  <data name="groupSource.Text" xml:space="preserve">
+    <value>Zdroj Torrentu::</value>
+  </data>
+  <data name="groupTrackers.Text" xml:space="preserve">
+    <value>Trackery (každý na nové řádce):</value>
+  </data>
+  <data name="groupWebSeeds.Text" xml:space="preserve">
+    <value>Webové zdroje (každý na nové řádce):</value>
+  </data>
+  <data name="groupProperties.Text" xml:space="preserve">
+    <value>Vlastnosti torrentu:</value>
+  </data>
+  <data name="checkPrivate.Text" xml:space="preserve">
+    <value>Soukromý torrent:</value>
+  </data>
+  <data name="labelPieceLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
+  </data>
+  <data name="labelPieceLength.Text" xml:space="preserve">
+    <value>Velikost bloku:</value>
+  </data>
+  <data name="btnCreate.Text" xml:space="preserve">
+    <value>Vytvoř torrent!</value>
+  </data>
+  <data name="groupRelated.Text" xml:space="preserve">
+    <value>Související:</value>
+  </data>
+  <data name="labelRelatedTorrents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 13</value>
+  </data>
+  <data name="labelRelatedTorrents.Text" xml:space="preserve">
+    <value>Související torrenty:</value>
+  </data>
+  <data name="groupComment.Text" xml:space="preserve">
+    <value>Komentář:</value>
+  </data>
+  <data name="dialogAddFile.Filter" xml:space="preserve">
+    <value>Všechny soubory|*.*</value>
+  </data>
+  <data name="dialogSaveTorrent.Filter" xml:space="preserve">
+    <value>Torrenty|*.torrent|Všechny soubory|*.*</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Torrentizer - Jednoduše vytvoří nový torrent</value>
   </data>
 </root>

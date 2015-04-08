@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MainWindow_btnCreate_Click_SelectFileOrFolder" xml:space="preserve">
-    <value>You must select a file or a folder to create a torrent from!</value>
+    <value>Musíte zvolit soubor nebo složku ze které chcete vytvořit torrent!</value>
   </data>
   <data name="MainWindow_btnCreate_Click_AtLeastOneTrackerRequired" xml:space="preserve">
-    <value>At least one tracker address is required!</value>
+    <value>Musí být zadána adresa alespoň jednoho trackeru!</value>
   </data>
   <data name="MainWindow_AfterHashing_TorrentCreated" xml:space="preserve">
-    <value>Torrent Created!</value>
+    <value>Torrent vytvořen!</value>
   </data>
 </root>
