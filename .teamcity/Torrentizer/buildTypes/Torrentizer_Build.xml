@@ -41,6 +41,9 @@
           <param name="secure:guthub_username" value="zxx6e1e9802cd9b51b9775d03cbe80d301b" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
