@@ -23,6 +23,7 @@ using System.Windows.Forms;
 using MonoTorrent;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Common;
+using Torrentizer.Properties;
 
 namespace Torrentizer
 {
@@ -102,12 +103,12 @@ namespace Torrentizer
             // checks first
             if (string.IsNullOrWhiteSpace(comboAdd.Text))
             {
-                MessageBox.Show("Musíte zvolit soubor nebo složku ze které chcete vytvořit torrent!");
+                MessageBox.Show(Resources.MainWindow_btnCreate_Click_SelectFileOrFolder);
                 return;
             }
             if (string.IsNullOrWhiteSpace(textTrackers.Text))
             {
-                MessageBox.Show("Musí být zadána adresa alespoň jednoho trackeru!");
+                MessageBox.Show(Resources.MainWindow_btnCreate_Click_AtLeastOneTrackerRequired);
                 return;
             }
             // try to guess torrent name and add .torrent extension
@@ -201,7 +202,7 @@ namespace Torrentizer
             {
                 Log.Log("Finished creating torrent!");
                 Enabled = true;
-                MessageBox.Show("Hotovo!");
+                MessageBox.Show(Resources.MainWindow_AfterHashing_TorrentCreated);
             }));
         }
 

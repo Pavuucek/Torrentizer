@@ -117,11 +117,706 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCreate.Text" xml:space="preserve">
+    <value>Make me a Torrent!</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="groupWebSeeds.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textWebSeeds.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonAddFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="comboPieceLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 19</value>
+  </data>
+  <data name="comboPieceLength.Items5" xml:space="preserve">
+    <value>256 kB</value>
+  </data>
+  <data name="&gt;&gt;groupSource.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="labelSkip.Text" xml:space="preserve">
+    <value>Skip:</value>
+  </data>
+  <data name="btnCreate.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;groupTrackers.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;labelWeb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkPrivate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
+  </data>
+  <data name="&gt;&gt;labelWeb.Parent" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="groupProperties.Text" xml:space="preserve">
+    <value>Torrent Properties:</value>
+  </data>
+  <data name="&gt;&gt;groupSource.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="labelSkip.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupWebSeeds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 246</value>
+  </data>
+  <data name="textWebSeeds.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="comboPieceLength.Items" xml:space="preserve">
+    <value>auto</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="buttonAddFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>306, 45</value>
+  </data>
+  <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnCreate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>724, 336</value>
+  </data>
+  <data name="&gt;&gt;checkPrivate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textSkip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 93</value>
+  </data>
+  <data name="textWeb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 20</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupTrackers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.Name" xml:space="preserve">
+    <value>buttonAddFolder</value>
+  </data>
+  <data name="checkPrivate.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelRelatedTorrents.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;checkPrivate.Parent" xml:space="preserve">
+    <value>groupProperties</value>
+  </data>
+  <data name="groupProperties.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupTrackers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 100</value>
+  </data>
+  <data name="&gt;&gt;textRss.Name" xml:space="preserve">
+    <value>textRss</value>
+  </data>
+  <data name="labelRss.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 13</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Torrentizer - Simply creates a new torrent file</value>
+  </data>
+  <data name="&gt;&gt;textRss.Parent" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupRelated.Text" xml:space="preserve">
+    <value>Related:</value>
+  </data>
+  <data name="&gt;&gt;groupProperties.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupComment.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="textRss.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelWeb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 18</value>
+  </data>
+  <data name="comboPieceLength.Items9" xml:space="preserve">
+    <value>4 MB</value>
+  </data>
+  <data name="&gt;&gt;checkPrivate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textRelatedTorrents.Parent" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="&gt;&gt;groupTrackers.Name" xml:space="preserve">
+    <value>groupTrackers</value>
+  </data>
+  <data name="&gt;&gt;labelRelatedTorrents.Name" xml:space="preserve">
+    <value>labelRelatedTorrents</value>
+  </data>
+  <data name="dialogAddFile.Filter" xml:space="preserve">
+    <value>All Files|*.*</value>
+  </data>
+  <data name="groupSource.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textWebSeeds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textRelatedTorrents.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelRss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupWebSeeds.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboPieceLength.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupRelated.Name" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="labelRelatedTorrents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
+  </data>
+  <data name="comboPieceLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="textTrackers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="groupProperties.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 13</value>
+  </data>
+  <data name="&gt;&gt;comboAdd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textRelatedTorrents.Name" xml:space="preserve">
+    <value>textRelatedTorrents</value>
+  </data>
+  <data name="textRelatedTorrents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 116</value>
+  </data>
+  <data name="&gt;&gt;dialogAddFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textWebSeeds.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;comboAdd.Parent" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
+  <data name="groupSource.Text" xml:space="preserve">
+    <value>Torrent Source:</value>
+  </data>
+  <data name="checkPrivate.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="labelRss.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelPieceLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="comboPieceLength.Items2" xml:space="preserve">
+    <value>32 kB</value>
+  </data>
+  <data name="comboAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>421, 21</value>
+  </data>
+  <data name="groupTrackers.Text" xml:space="preserve">
+    <value>Trackers (each on a new line):</value>
+  </data>
+  <data name="textRss.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 77</value>
+  </data>
+  <data name="labelRelatedTorrents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 100</value>
+  </data>
+  <data name="&gt;&gt;textSkip.Parent" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
+  <data name="&gt;&gt;textWebSeeds.Parent" xml:space="preserve">
+    <value>groupWebSeeds</value>
+  </data>
+  <data name="&gt;&gt;groupComment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelPieceLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textSkip.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="textRelatedTorrents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 20</value>
+  </data>
+  <data name="&gt;&gt;textSkip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSkip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupComment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 259</value>
+  </data>
+  <data name="&gt;&gt;labelSkip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textSkip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 20</value>
+  </data>
+  <data name="groupComment.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;comboPieceLength.Name" xml:space="preserve">
+    <value>comboPieceLength</value>
+  </data>
+  <data name="&gt;&gt;dialogSaveTorrent.Name" xml:space="preserve">
+    <value>dialogSaveTorrent</value>
+  </data>
+  <data name="&gt;&gt;textRelatedTorrents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="textComment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="labelSkip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 77</value>
+  </data>
+  <data name="&gt;&gt;textTrackers.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textWeb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textTrackers.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="checkPrivate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 24</value>
+  </data>
+  <data name="&gt;&gt;labelRss.Name" xml:space="preserve">
+    <value>labelRss</value>
+  </data>
+  <data name="&gt;&gt;labelWeb.Name" xml:space="preserve">
+    <value>labelWeb</value>
+  </data>
+  <data name="&gt;&gt;textWeb.Parent" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Name" xml:space="preserve">
+    <value>progressBar1</value>
+  </data>
+  <data name="groupComment.Text" xml:space="preserve">
+    <value>Comment:</value>
+  </data>
+  <data name="&gt;&gt;textComment.Parent" xml:space="preserve">
+    <value>groupComment</value>
+  </data>
+  <data name="textComment.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;textTrackers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textRss.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 20</value>
+  </data>
+  <data name="labelSkip.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;textSkip.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelRelatedTorrents.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;labelPieceLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 336</value>
+  </data>
+  <data name="labelPieceLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 26</value>
+  </data>
+  <data name="textTrackers.Text" xml:space="preserve">
+    <value>udp://tracker.openbittorrent.com:80/announce
+udp://tracker.publicbt.com:80/announce
+udp://tracker.ccc.de:80/announce</value>
+  </data>
+  <data name="&gt;&gt;textTrackers.Parent" xml:space="preserve">
+    <value>groupTrackers</value>
+  </data>
+  <data name="&gt;&gt;groupWebSeeds.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;textComment.Name" xml:space="preserve">
+    <value>textComment</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textTrackers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>427, 81</value>
+  </data>
+  <data name="&gt;&gt;textSkip.Name" xml:space="preserve">
+    <value>textSkip</value>
+  </data>
+  <data name="groupSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 123</value>
+  </data>
+  <data name="btnCreate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="&gt;&gt;labelRelatedTorrents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupRelated.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 93</value>
+  </data>
+  <data name="textWebSeeds.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="comboPieceLength.Items3" xml:space="preserve">
+    <value>64 kB</value>
+  </data>
+  <data name="&gt;&gt;labelPieceLength.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupTrackers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 140</value>
+  </data>
+  <data name="textRelatedTorrents.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;textComment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelPieceLength.Parent" xml:space="preserve">
+    <value>groupProperties</value>
+  </data>
+  <data name="&gt;&gt;comboAdd.Name" xml:space="preserve">
+    <value>comboAdd</value>
+  </data>
+  <data name="&gt;&gt;groupSource.Name" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
+  <data name="comboPieceLength.Items10" xml:space="preserve">
+    <value>8 MB</value>
+  </data>
+  <data name="&gt;&gt;checkPrivate.Name" xml:space="preserve">
+    <value>checkPrivate</value>
+  </data>
+  <data name="groupWebSeeds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 84</value>
+  </data>
+  <data name="comboPieceLength.Items6" xml:space="preserve">
+    <value>512 kB</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFile.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="comboAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelRss.Parent" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="&gt;&gt;groupRelated.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="dialogSaveTorrent.Filter" xml:space="preserve">
+    <value>Torrents|*.torrent|All Files|*.*</value>
+  </data>
+  <data name="labelRss.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 61</value>
+  </data>
+  <data name="labelWeb.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textWebSeeds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="labelPieceLength.Text" xml:space="preserve">
+    <value>Block Size:</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.Parent" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
+  <data name="&gt;&gt;btnCreate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textComment.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="comboPieceLength.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelRss.Text" xml:space="preserve">
+    <value>RSS:</value>
+  </data>
+  <data name="&gt;&gt;labelPieceLength.Name" xml:space="preserve">
+    <value>labelPieceLength</value>
+  </data>
+  <data name="groupProperties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 74</value>
+  </data>
+  <data name="&gt;&gt;labelRelatedTorrents.Parent" xml:space="preserve">
+    <value>groupRelated</value>
+  </data>
+  <data name="&gt;&gt;groupComment.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFile.Name" xml:space="preserve">
+    <value>buttonAddFile</value>
+  </data>
+  <data name="textWeb.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainWindow</value>
+  </data>
+  <data name="&gt;&gt;textRss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonAddFolder.Text" xml:space="preserve">
+    <value>Select a Folder</value>
+  </data>
+  <data name="groupTrackers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dialogAddFile.Name" xml:space="preserve">
+    <value>dialogAddFile</value>
+  </data>
+  <data name="&gt;&gt;btnCreate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupRelated.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textRss.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dialogAddFolder.Name" xml:space="preserve">
+    <value>dialogAddFolder</value>
+  </data>
+  <data name="&gt;&gt;groupTrackers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="comboAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 20</value>
+  </data>
+  <data name="&gt;&gt;btnCreate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupWebSeeds.Name" xml:space="preserve">
+    <value>groupWebSeeds</value>
+  </data>
+  <data name="groupRelated.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFile.Parent" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
+  <data name="&gt;&gt;groupWebSeeds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupComment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 71</value>
+  </data>
+  <data name="&gt;&gt;labelSkip.Name" xml:space="preserve">
+    <value>labelSkip</value>
+  </data>
+  <data name="&gt;&gt;groupProperties.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textWeb.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="buttonAddFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="groupWebSeeds.Text" xml:space="preserve">
+    <value>Web Sources (each on a new line):</value>
+  </data>
+  <data name="labelSkip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="groupRelated.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 155</value>
+  </data>
+  <data name="buttonAddFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboPieceLength.Items4" xml:space="preserve">
+    <value>128 kB</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;groupProperties.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="labelPieceLength.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textTrackers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="textComment.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;textTrackers.Name" xml:space="preserve">
+    <value>textTrackers</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonAddFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="&gt;&gt;labelRelatedTorrents.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelWeb.Text" xml:space="preserve">
+    <value>Web:</value>
+  </data>
+  <data name="comboPieceLength.Items7" xml:space="preserve">
+    <value>1 MB</value>
+  </data>
+  <data name="&gt;&gt;comboPieceLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSkip.Parent" xml:space="preserve">
+    <value>groupSource</value>
+  </data>
+  <data name="textTrackers.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;groupComment.Name" xml:space="preserve">
+    <value>groupComment</value>
+  </data>
+  <data name="labelRelatedTorrents.Text" xml:space="preserve">
+    <value>Related Torrents:</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>859, 366</value>
+  </data>
+  <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 23</value>
+  </data>
+  <data name="&gt;&gt;textComment.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="comboPieceLength.Items11" xml:space="preserve">
+    <value>16 MB</value>
+  </data>
+  <data name="&gt;&gt;dialogAddFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textWebSeeds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 65</value>
+  </data>
+  <data name="&gt;&gt;groupProperties.Name" xml:space="preserve">
+    <value>groupProperties</value>
+  </data>
+  <data name="&gt;&gt;comboAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCreate.Name" xml:space="preserve">
+    <value>btnCreate</value>
+  </data>
+  <data name="comboPieceLength.Items1" xml:space="preserve">
+    <value>16 kB</value>
+  </data>
+  <data name="labelWeb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="checkPrivate.Text" xml:space="preserve">
+    <value>Private Torrent:</value>
+  </data>
+  <data name="buttonAddFile.Text" xml:space="preserve">
+    <value>Select a File</value>
+  </data>
+  <data name="&gt;&gt;labelRss.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textWebSeeds.Name" xml:space="preserve">
+    <value>textWebSeeds</value>
+  </data>
+  <data name="textWeb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 34</value>
+  </data>
+  <data name="comboPieceLength.Items8" xml:space="preserve">
+    <value>2 MB</value>
+  </data>
+  <data name="labelRss.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="textComment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>393, 52</value>
+  </data>
+  <data name="&gt;&gt;textWeb.Name" xml:space="preserve">
+    <value>textWeb</value>
+  </data>
+  <data name="buttonAddFile.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboPieceLength.Parent" xml:space="preserve">
+    <value>groupProperties</value>
+  </data>
+  <data name="&gt;&gt;labelWeb.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 11</value>
+  </data>
+  <data name="&gt;&gt;groupRelated.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelWeb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;dialogSaveTorrent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="dialogAddFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="dialogAddFolder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>157, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="dialogSaveTorrent.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>299, 17</value>
