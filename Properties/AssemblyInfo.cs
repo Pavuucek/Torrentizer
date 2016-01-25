@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (c) 2015 Michal Kuncl <michal.kuncl@gmail.com> http://www.pavucina.info
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -20,36 +20,36 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Obecné informace o sestavení jsou øízeny prostøednictvím následující 
-// sadu atributù. Zmìnou hodnot tìchto atributù se upraví informace
-// pøidruené k sestavení.
+// ObecnÃ© informace o sestavenÃ­ jsou Å™Ã­zeny prostÅ™ednictvÃ­m nÃ¡sledujÃ­cÃ­ 
+// sadu atributÅ¯. ZmÄ›nou hodnot tÄ›chto atributÅ¯ se upravÃ­ informace
+// pÅ™idruÅ¾enÃ© k sestavenÃ­.
 [assembly: AssemblyTitle("Torrentizer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("X-C Soft ltd.")]
 [assembly: AssemblyProduct("Torrentizer")]
-[assembly: AssemblyCopyright("Copyright © X-C Soft ltd. 2015")]
+[assembly: AssemblyCopyright("Copyright Â© X-C Soft ltd. 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Nastavení atributu ComVisible na hodnotu False udìlá typy v tomto sestavení neviditelné 
-// komponent modelu COM.  Pokud potøebujete pøistoupit k typu v tomto sestavení z 
-// modelu COM, nastavte atribut ComVisible daného typu na hodnotu True.
+// NastavenÃ­ atributu ComVisible na hodnotu False udÄ›lÃ¡ typy v tomto sestavenÃ­ neviditelnÃ© 
+// komponent modelu COM.  Pokud potÅ™ebujete pÅ™istoupit k typu v tomto sestavenÃ­ z 
+// modelu COM, nastavte atribut ComVisible danÃ©ho typu na hodnotu True.
 [assembly: ComVisible(false)]
 
-// Následující GUID je pouito pro ID knihovny typù, pokud je tento projekt vystaven COM
+// NÃ¡sledujÃ­cÃ­ GUID je pouÅ¾ito pro ID knihovny typÅ¯, pokud je tento projekt vystaven COM
 [assembly: Guid("30761b03-fa60-44b9-b3c9-f3fb216b83a0")]
 
-// Informace o verzi sestavení se skládá z následujících ètyø hodnot:
+// Informace o verzi sestavenÃ­ se sklÃ¡dÃ¡ z nÃ¡sledujÃ­cÃ­ch ÄtyÅ™ hodnot:
 //
-//      Hlavní verze
-//      Dílèí verze 
-//      Èíslo sestavení
+//      HlavnÃ­ verze
+//      DÃ­lÄÃ­ verze 
+//      ÄŒÃ­slo sestavenÃ­
 //      Revize
 //
-// Mùete zadat všechny hodnoty nebo nastavit vıchozí oèíslování sestavení a revize 
-// pouitím znaku '*' jak je ukázáno dále:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("$MajorVersion$.$MinorVersion$.$Revision$.$Commit$")]
-[assembly: AssemblyFileVersion("$MajorVersion$.$MinorVersion$.$Revision$.$Commit$")]
-[assembly: AssemblyInformationalVersion("$Branch$:$MajorVersion$.$MinorVersion$.$Revision$-$Commit$-$ShortHash$")]
+// MÅ¯Å¾ete zadat vÅ¡echny hodnoty nebo nastavit vÃ½chozÃ­ oÄÃ­slovÃ¡nÃ­ sestavenÃ­ a revize 
+// pouÅ¾itÃ­m znaku '*' jak je ukÃ¡zÃ¡no dÃ¡le:
+// [assembly: AssemblyVersion("0.9.0.23")]
+[assembly: AssemblyVersion("0.9.0.23")]
+[assembly: AssemblyFileVersion("0.9.0.23")]
+[assembly: AssemblyInformationalVersion("master:0.9.0-23-g7886ebd")]
