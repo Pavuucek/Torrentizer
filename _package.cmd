@@ -1,5 +1,5 @@
 @echo off
-call _build.cmd
+::call _build.cmd
 set zip="c:\program files\7-zip\7z.exe"
 if not exist "%~pd0bin\debug\Torrentizer.exe" goto build_failed
 if not exist "%~pd0bin\release\Torrentizer.exe" goto build_failed
