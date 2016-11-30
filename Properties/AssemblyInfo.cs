@@ -49,7 +49,7 @@ using System.Runtime.InteropServices;
 //
 // Můžete zadat všechny hodnoty nebo nastavit výchozí očíslování sestavení a revize 
 // použitím znaku '*' jak je ukázáno dále:
-// [assembly: AssemblyVersion("0.9.0.23")]
-[assembly: AssemblyVersion("0.9.0.23")]
-[assembly: AssemblyFileVersion("0.9.0.23")]
-[assembly: AssemblyInformationalVersion("master:0.9.0-23-g7886ebd")]
+// [assembly: AssemblyVersion("0.9.0.27")]
+[assembly: AssemblyVersion("0.9.0.27")]
+[assembly: AssemblyFileVersion("0.9.0.27")]
+[assembly: AssemblyInformationalVersion("master:0.9.0-27-g7c0b96b")]

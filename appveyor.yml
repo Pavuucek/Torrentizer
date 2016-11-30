@@ -1,0 +1,15 @@
+version: '{branch}-{build}'
+install:
+- cmd: git submodule update --init --recursive
+build_script:
+- cmd: >-
+    nuget restore
+
+    _build.cmd
+
+    _package.cmd
+artifacts:
+- path: bin\Torrentizer_*(DEBUG).zip
+  name: Debug
+- path: bin\Torrentizer_*(RELEASE).zip
+  name: Release
