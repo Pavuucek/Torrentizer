@@ -7,7 +7,7 @@ call "%DOTNET_HOME%\MSBuild" "%~pd0.\Torrentizer.sln" %COMMON_BUILD_OPTIONS% /m 
 if errorlevel 1 goto batch_failed
 call "%DOTNET_HOME%\MSBuild" "%~pd0.\Torrentizer.sln" %COMMON_BUILD_OPTIONS% /m /property:Configuration=Release /property:Platform="Any CPU"
 if errorlevel 1 goto batch_failed
-GitVersioner.exe ba
+call GitVersioner.bat ba
 goto batch_ok
 
 :batch_failed

@@ -8,7 +8,7 @@ echo %zip% a Torrentizer_$Branch$-$MajorVersion$.$MinorVersion$.$Revision$-$Comm
 echo %zip% a Torrentizer_$Branch$-$MajorVersion$.$MinorVersion$.$Revision$-$Commit$-$ShortHash$(RELEASE).zip release\*.*>>%~pd0\bin\zip.cmd
 echo exit >>%~pd0\bin\zip.cmd
 pushd %~pd0\bin
-..\gitversioner.exe w zip.cmd
+call ..\gitversioner.bat w zip.cmd
 if exist zip.cmd call start /wait zip.cmd
 if exist zip.cmd del zip.cmd > nul
 if exist zip.cmd.gwbackup del zip.cmd.gwbackup > nul
