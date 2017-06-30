@@ -121,7 +121,7 @@ namespace Torrentizer
             // let's go!
             Log.Log("Creating torrent " + dialogSaveTorrent.FileName);
             _t = new TorrentCreator();
-            _t.CreatedBy = Application.ProductName + " " + Application.ProductName;
+            _t.CreatedBy = Application.ProductName + " " + Application.ProductVersion;
             // is private?
             _t.Private = checkPrivate.Checked;
             if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text);
@@ -172,11 +172,13 @@ namespace Torrentizer
         private void t_Hashed(object sender, TorrentCreatorEventArgs e)
         {
             if (e.CurrentFile != _lastHashedFile)
+#if (DEBUG)
                 Log.Invoke((MethodInvoker) (() =>
                 {
                     Log.Log(string.Format("Hashing file {0}", e.CurrentFile));
                     _lastHashedFile = e.CurrentFile;
                 }));
+#endif
             /*Log.Invoke((MethodInvoker)(() =>
             {
                 Log.Log(string.Format("Overall {0}% hashed", e.OverallCompletion));
@@ -196,7 +198,9 @@ namespace Torrentizer
             }
             catch (Exception ex)
             {
+#if (DEBUG)
                 Log.Invoke((MethodInvoker) (() => { Log.Log(string.Format("Error creating torrent: {0}", ex)); }));
+#endif
             }
             Invoke((MethodInvoker) (() =>
             {

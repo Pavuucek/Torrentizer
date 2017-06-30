@@ -38,6 +38,7 @@ namespace Torrentizer
 
         public void Log(string what)
         {
+#if (DEBUG)
             what = DateTime.Now + " " + what;
             if (AddToTop) logBox.Items.Insert(0, what);
             else
@@ -46,6 +47,7 @@ namespace Torrentizer
                 ScrollControlIntoView(logBox);
             }
             Application.DoEvents();
+#endif
         }
     }
 }
