@@ -43,7 +43,7 @@ namespace Torrentizer
         {
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             Log.AddToTop = false;
-            Log.Log(string.Format("App Startup, version {0}", Application.ProductVersion));
+            Log.Log($"App Startup, version {Application.ProductVersion}");
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace Torrentizer
             _t.Private = checkPrivate.Checked;
             if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text);
             else _t.PieceLength = TorrentCreator.RecommendedPieceSize(soubory.Files);
-            Log.Log(string.Format("Piece length: {0}", _t.PieceLength));
+            Log.Log($"Piece length: {_t.PieceLength}");
             // related: RSS
             if (!string.IsNullOrWhiteSpace(textRss.Text))
                 _t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
@@ -163,9 +163,7 @@ namespace Torrentizer
             // comment
             if (!string.IsNullOrWhiteSpace(textComment.Text)) _t.Comment = textComment.Text;
             // publisher, example: Michal via Torrentizer version 1.0.0.0
-            _t.Publisher = string.Format("{0} via {1} version {2}",
-                Environment.UserName, Application.ProductName,
-                Application.ProductVersion);
+            _t.Publisher = $"{Environment.UserName} via {Application.ProductName} version {Application.ProductVersion}";
             // shameless ad goes here:
             _t.PublisherUrl = "http://github.com/pavuucek/Torrentizer";
             // not sure what this does...
@@ -183,7 +181,7 @@ namespace Torrentizer
 #if (DEBUG)
             Log.Invoke((MethodInvoker) (() =>
             {
-                Log.Log(string.Format("Hashing file {0}% {1}", Math.Round(e.FileCompletion), e.CurrentFile));
+                Log.Log($"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
                 _lastHashedFile = e.CurrentFile;
             }));
 #endif
@@ -207,7 +205,7 @@ namespace Torrentizer
             catch (Exception ex)
             {
 #if (DEBUG)
-                Log.Invoke((MethodInvoker) (() => { Log.Log(string.Format("Error creating torrent: {0}", ex)); }));
+                Log.Invoke((MethodInvoker) (() => { Log.Log($"Error creating torrent: {ex}"); }));
 #endif
             }
             Invoke((MethodInvoker) (() =>
