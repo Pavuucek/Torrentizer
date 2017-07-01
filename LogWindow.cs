@@ -44,7 +44,8 @@ namespace Torrentizer
             else
             {
                 logBox.Items.Add(what);
-                ScrollControlIntoView(logBox);
+                //ScrollControlIntoView(logBox);
+                logBox.TopIndex = logBox.Items.Count - 1;
             }
             Application.DoEvents();
 #endif

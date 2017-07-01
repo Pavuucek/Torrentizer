@@ -19,6 +19,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using MonoTorrent;
 using MonoTorrent.BEncoding;
@@ -111,16 +112,24 @@ namespace Torrentizer
                 MessageBox.Show(Resources.MainWindow_btnCreate_Click_AtLeastOneTrackerRequired);
                 return;
             }
-            // try to guess torrent name and add .torrent extension
-            var soubory = new TorrentFileSource(comboAdd.Text);
-            dialogSaveTorrent.FileName = soubory.TorrentName + ".torrent";
-            // prompt to save torrent
-            if (dialogSaveTorrent.ShowDialog() != DialogResult.OK) return;
             // we want user to wait patiently so disable everything
             Enabled = false;
             // let's go!
             Log.Log("Creating torrent " + dialogSaveTorrent.FileName);
+
+            // try to guess torrent name and add .torrent extension
+            Log.Log("Adding files...");
+            var soubory = new TorrentFileSource(comboAdd.Text);
+            Log.Log($"... will contain {soubory.Files.Count()} files.");
+            dialogSaveTorrent.FileName = soubory.TorrentName + ".torrent";
+            // prompt to save torrent
+            if (dialogSaveTorrent.ShowDialog() != DialogResult.OK)
+            {
+                Enabled = true;
+                return;
+            }
             _t = new TorrentCreator();
+            _t.SetCustom(new BEncodedString("name"), new BEncodedString(dialogSaveTorrent.FileName));
             _t.CreatedBy = Application.ProductName + " " + Application.ProductVersion;
             // is private?
             _t.Private = checkPrivate.Checked;
@@ -162,7 +171,6 @@ namespace Torrentizer
             // not sure what this does...
             _t.StoreMD5 = true;
 
-
             //soubory.TorrentName = "bezejmeeeeenaaaaaa";
             _t.Hashed += t_Hashed;
             Log.Log("Hashing...");
@@ -173,11 +181,11 @@ namespace Torrentizer
         {
             if (e.CurrentFile != _lastHashedFile)
 #if (DEBUG)
-                Log.Invoke((MethodInvoker) (() =>
-                {
-                    Log.Log(string.Format("Hashing file {0}", e.CurrentFile));
-                    _lastHashedFile = e.CurrentFile;
-                }));
+            Log.Invoke((MethodInvoker) (() =>
+            {
+                Log.Log(string.Format("Hashing file {0}% {1}", Math.Round(e.FileCompletion), e.CurrentFile));
+                _lastHashedFile = e.CurrentFile;
+            }));
 #endif
             /*Log.Invoke((MethodInvoker)(() =>
             {
