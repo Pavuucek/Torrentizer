@@ -20,6 +20,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using MonoTorrent;
 using MonoTorrent.BEncoding;
@@ -43,7 +44,7 @@ namespace Torrentizer
         {
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             Log.AddToTop = false;
-            Log.Log($"App Startup, version {Application.ProductVersion}");
+            Log.Log($"App Startup, version {/*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}");
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
@@ -128,7 +129,7 @@ namespace Torrentizer
             }
             _t = new TorrentCreator();
             _t.SetCustom(new BEncodedString("name"), new BEncodedString(dialogSaveTorrent.FileName));
-            _t.CreatedBy = Application.ProductName + " " + Application.ProductVersion;
+            _t.CreatedBy = Application.ProductName + " " + /*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version;
             // is private?
             _t.Private = checkPrivate.Checked;
             if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text);
@@ -157,7 +158,7 @@ namespace Torrentizer
             // comment
             if (!string.IsNullOrWhiteSpace(textComment.Text)) _t.Comment = textComment.Text;
             // publisher, example: Michal via Torrentizer version 1.0.0.0
-            _t.Publisher = $"{Environment.UserName} via {Application.ProductName} version {Application.ProductVersion}";
+            _t.Publisher = $"{Environment.UserName} via {Application.ProductName} version {/*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}";
             // shameless ad goes here:
             _t.PublisherUrl = "http://github.com/pavuucek/Torrentizer";
             // not sure what this does...
