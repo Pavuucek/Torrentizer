@@ -30,9 +30,9 @@ namespace Torrentizer
 {
     public partial class MainWindow : Form
     {
+        public readonly LogWindow Log = new LogWindow();
         private string _lastHashedFile = string.Empty;
         private TorrentCreator _t;
-        public readonly LogWindow Log = new LogWindow();
 
         public MainWindow()
         {
@@ -81,19 +81,17 @@ namespace Torrentizer
             }
             var justUnits = string.Empty;
             foreach (var c in inText)
-            {
                 if (!char.IsNumber(c)) justUnits += c;
-            }
             switch (justUnits)
             {
                 case "kb":
-                    number = number*1024;
+                    number = number * 1024;
                     break;
                 case "mb":
-                    number = number*1024*1024;
+                    number = number * 1024 * 1024;
                     break;
                 case "gb":
-                    number = number*1024*1024*1024;
+                    number = number * 1024 * 1024 * 1024;
                     break;
             }
             return number;
@@ -147,17 +145,13 @@ namespace Torrentizer
                 _t.SetCustom(new BEncodedString("similar_torrents"), new BEncodedString(textRelatedTorrents.Text));
             // trackers
             foreach (var line in textTrackers.Lines)
-            {
                 _t.Announces.Add(new RawTrackerTier(new[] {line}));
-            }
             // webseeds
             if (!string.IsNullOrWhiteSpace(textWebSeeds.Text))
             {
                 var be = new BEncodedList();
                 foreach (var line in textWebSeeds.Lines)
-                {
                     be.Add(new BEncodedString(line));
-                }
                 _t.SetCustom(new BEncodedString("url-list"), be);
             }
             // comment
@@ -179,11 +173,11 @@ namespace Torrentizer
         {
             if (e.CurrentFile != _lastHashedFile)
 #if (DEBUG)
-            Log.Invoke((MethodInvoker) (() =>
-            {
-                Log.Log($"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
-                _lastHashedFile = e.CurrentFile;
-            }));
+                Log.Invoke((MethodInvoker) (() =>
+                {
+                    Log.Log($"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
+                    _lastHashedFile = e.CurrentFile;
+                }));
 #endif
             /*Log.Invoke((MethodInvoker)(() =>
             {
@@ -200,7 +194,10 @@ namespace Torrentizer
         {
             try
             {
-                using (var stream = File.OpenWrite(dialogSaveTorrent.FileName)) _t.EndCreate(ar, stream);
+                using (var stream = File.OpenWrite(dialogSaveTorrent.FileName))
+                {
+                    _t.EndCreate(ar, stream);
+                }
             }
             catch (Exception ex)
             {
