@@ -57,6 +57,8 @@
             this.dialogAddFile = new System.Windows.Forms.OpenFileDialog();
             this.dialogAddFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.dialogSaveTorrent = new System.Windows.Forms.SaveFileDialog();
+            this.textTorrentName = new System.Windows.Forms.TextBox();
+            this.labelTorrentName = new System.Windows.Forms.Label();
             this.groupSource.SuspendLayout();
             this.groupTrackers.SuspendLayout();
             this.groupWebSeeds.SuspendLayout();
@@ -67,19 +69,19 @@
             // 
             // groupSource
             // 
-            resources.ApplyResources(this.groupSource, "groupSource");
             this.groupSource.Controls.Add(this.comboAdd);
             this.groupSource.Controls.Add(this.labelSkip);
             this.groupSource.Controls.Add(this.textSkip);
             this.groupSource.Controls.Add(this.buttonAddFolder);
             this.groupSource.Controls.Add(this.buttonAddFile);
+            resources.ApplyResources(this.groupSource, "groupSource");
             this.groupSource.Name = "groupSource";
             this.groupSource.TabStop = false;
             // 
             // comboAdd
             // 
-            resources.ApplyResources(this.comboAdd, "comboAdd");
             this.comboAdd.FormattingEnabled = true;
+            resources.ApplyResources(this.comboAdd, "comboAdd");
             this.comboAdd.Name = "comboAdd";
             // 
             // labelSkip
@@ -108,8 +110,8 @@
             // 
             // groupTrackers
             // 
-            resources.ApplyResources(this.groupTrackers, "groupTrackers");
             this.groupTrackers.Controls.Add(this.textTrackers);
+            resources.ApplyResources(this.groupTrackers, "groupTrackers");
             this.groupTrackers.Name = "groupTrackers";
             this.groupTrackers.TabStop = false;
             // 
@@ -120,8 +122,8 @@
             // 
             // groupWebSeeds
             // 
-            resources.ApplyResources(this.groupWebSeeds, "groupWebSeeds");
             this.groupWebSeeds.Controls.Add(this.textWebSeeds);
+            resources.ApplyResources(this.groupWebSeeds, "groupWebSeeds");
             this.groupWebSeeds.Name = "groupWebSeeds";
             this.groupWebSeeds.TabStop = false;
             // 
@@ -132,10 +134,12 @@
             // 
             // groupProperties
             // 
-            resources.ApplyResources(this.groupProperties, "groupProperties");
+            this.groupProperties.Controls.Add(this.labelTorrentName);
+            this.groupProperties.Controls.Add(this.textTorrentName);
             this.groupProperties.Controls.Add(this.checkPrivate);
             this.groupProperties.Controls.Add(this.labelPieceLength);
             this.groupProperties.Controls.Add(this.comboPieceLength);
+            resources.ApplyResources(this.groupProperties, "groupProperties");
             this.groupProperties.Name = "groupProperties";
             this.groupProperties.TabStop = false;
             // 
@@ -152,7 +156,6 @@
             // 
             // comboPieceLength
             // 
-            resources.ApplyResources(this.comboPieceLength, "comboPieceLength");
             this.comboPieceLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPieceLength.FormattingEnabled = true;
             this.comboPieceLength.Items.AddRange(new object[] {
@@ -168,6 +171,7 @@
             resources.GetString("comboPieceLength.Items9"),
             resources.GetString("comboPieceLength.Items10"),
             resources.GetString("comboPieceLength.Items11")});
+            resources.ApplyResources(this.comboPieceLength, "comboPieceLength");
             this.comboPieceLength.Name = "comboPieceLength";
             // 
             // progressBar1
@@ -184,13 +188,13 @@
             // 
             // groupRelated
             // 
-            resources.ApplyResources(this.groupRelated, "groupRelated");
             this.groupRelated.Controls.Add(this.labelRelatedTorrents);
             this.groupRelated.Controls.Add(this.textRelatedTorrents);
             this.groupRelated.Controls.Add(this.labelRss);
             this.groupRelated.Controls.Add(this.labelWeb);
             this.groupRelated.Controls.Add(this.textRss);
             this.groupRelated.Controls.Add(this.textWeb);
+            resources.ApplyResources(this.groupRelated, "groupRelated");
             this.groupRelated.Name = "groupRelated";
             this.groupRelated.TabStop = false;
             // 
@@ -226,8 +230,8 @@
             // 
             // groupComment
             // 
-            resources.ApplyResources(this.groupComment, "groupComment");
             this.groupComment.Controls.Add(this.textComment);
+            resources.ApplyResources(this.groupComment, "groupComment");
             this.groupComment.Name = "groupComment";
             this.groupComment.TabStop = false;
             // 
@@ -242,12 +246,21 @@
             // 
             // dialogAddFolder
             // 
-            resources.ApplyResources(this.dialogAddFolder, "dialogAddFolder");
             this.dialogAddFolder.ShowNewFolderButton = false;
             // 
             // dialogSaveTorrent
             // 
             resources.ApplyResources(this.dialogSaveTorrent, "dialogSaveTorrent");
+            // 
+            // textTorrentName
+            // 
+            resources.ApplyResources(this.textTorrentName, "textTorrentName");
+            this.textTorrentName.Name = "textTorrentName";
+            // 
+            // labelTorrentName
+            // 
+            resources.ApplyResources(this.labelTorrentName, "labelTorrentName");
+            this.labelTorrentName.Name = "labelTorrentName";
             // 
             // MainWindow
             // 
@@ -312,8 +325,8 @@
         private System.Windows.Forms.OpenFileDialog dialogAddFile;
         private System.Windows.Forms.FolderBrowserDialog dialogAddFolder;
         private System.Windows.Forms.SaveFileDialog dialogSaveTorrent;
-
-
+        private System.Windows.Forms.Label labelTorrentName;
+        private System.Windows.Forms.TextBox textTorrentName;
     }
 }
 

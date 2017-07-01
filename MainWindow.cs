@@ -163,7 +163,7 @@ namespace Torrentizer
             // not sure what this does...
             _t.StoreMD5 = true;
 
-            //soubory.TorrentName = "bezejmeeeeenaaaaaa";
+            soubory.TorrentName = textTorrentName.Text;
             _t.Hashed += t_Hashed;
             Log.Log("Hashing...");
             _t.BeginCreate(soubory, AfterHashing, null);
@@ -210,17 +210,27 @@ namespace Torrentizer
                 Log.Log("Finished creating torrent!");
                 Enabled = true;
                 MessageBox.Show(Resources.MainWindow_AfterHashing_TorrentCreated);
+                progressBar1.Value = 0;
             }));
         }
 
         private void buttonAddFile_Click(object sender, EventArgs e)
         {
-            if (dialogAddFile.ShowDialog() == DialogResult.OK) comboAdd.Text = dialogAddFile.FileName;
+            if (dialogAddFile.ShowDialog() == DialogResult.OK)
+            {
+                comboAdd.Text = dialogAddFile.FileName;
+                textTorrentName.Text = Path.GetFileName(dialogAddFile.FileName);
+            }
         }
 
         private void buttonAddFolder_Click(object sender, EventArgs e)
         {
-            if (dialogAddFolder.ShowDialog() == DialogResult.OK) comboAdd.Text = dialogAddFolder.SelectedPath;
+            if (dialogAddFolder.ShowDialog() == DialogResult.OK)
+            {
+                comboAdd.Text = dialogAddFolder.SelectedPath;
+                textTorrentName.Text = new DirectoryInfo(dialogAddFolder.SelectedPath).Name;
+            }
         }
+
     }
 }
