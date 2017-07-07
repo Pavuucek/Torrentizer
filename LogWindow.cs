@@ -16,24 +16,32 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-using System;
 using System.Windows.Forms;
+using ArachNGIN.Tracer;
+using ArachNGIN.Tracer.Handlers;
+using ArachNGIN.Tracer.Helpers;
+using ArachNGIN.Tracer.MessageFormat;
 
 namespace Torrentizer
 {
-    public partial class LogWindow : Form
+    public partial class LogWindow : Form, ITracerHandler
     {
         public bool AddToTop = true;
 
         public LogWindow()
         {
             InitializeComponent();
+#if (DEBUG)
+            Tracer.CurrentLevel = TracerLevel.Trace;
+            Tracer.AddHandler(new DebugHandler());
+            Tracer.AddHandler(this);
+            Tracer.AddHandler(new FileHandler(new DebugMessageFormat()));
+#endif
         }
 
-        public void Log(string what)
+        private void Log(string what)
         {
 #if (DEBUG)
-            what = DateTime.Now + " " + what;
             if (AddToTop)
             {
                 logBox.Items.Insert(0, what);
@@ -41,11 +49,23 @@ namespace Torrentizer
             else
             {
                 logBox.Items.Add(what);
-                //ScrollControlIntoView(logBox);
                 logBox.TopIndex = logBox.Items.Count - 1;
             }
             Application.DoEvents();
 #endif
+        }
+
+        private readonly IMessageFormat _messageFormat =
+#if (DEBUG)
+                new DebugMessageFormat()
+#else
+                new DefaultMessageFormat()
+#endif
+            ;
+
+        public void Trace(TracerMessage tracerMessage)
+        {
+            Log(_messageFormat.Format(tracerMessage));
         }
     }
 }

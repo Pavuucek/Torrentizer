@@ -22,6 +22,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using ArachNGIN.Tracer;
+using ArachNGIN.Tracer.Helpers;
 using MonoTorrent;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Common;
@@ -44,7 +46,8 @@ namespace Torrentizer
         {
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             Log.AddToTop = false;
-            Log.Log($"App Startup, version {/*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}");
+            Tracer.Trace(
+                $"App Startup, version { /*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}");
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
@@ -113,20 +116,23 @@ namespace Torrentizer
             }
             // we want user to wait patiently so disable everything
             Enabled = false;
-            // let's go!
-            Log.Log("Creating torrent " + dialogSaveTorrent.FileName);
 
-            // try to guess torrent name and add .torrent extension
-            Log.Log("Adding files...");
-            var soubory = new TorrentFileSource(comboAdd.Text);
-            Log.Log($"... will contain {soubory.Files.Count()} files.");
-            dialogSaveTorrent.FileName = soubory.TorrentName + ".torrent";
             // prompt to save torrent
+            // do nothing before this!
             if (dialogSaveTorrent.ShowDialog() != DialogResult.OK)
             {
                 Enabled = true;
                 return;
             }
+            // try to guess torrent name and add .torrent extension
+            Tracer.Trace("Adding files...");
+            var soubory = new TorrentFileSource(comboAdd.Text);
+            Tracer.Trace($"... will contain {soubory.Files.Count()} files.");
+            dialogSaveTorrent.FileName = soubory.TorrentName + ".torrent";
+            
+            // let's go!
+            Tracer.Trace("Creating torrent " + dialogSaveTorrent.FileName);
+
             _t = new TorrentCreator();
             _t.SetCustom(new BEncodedString("name"), new BEncodedString(dialogSaveTorrent.FileName));
             _t.CreatedBy = Application.ProductName + " " + /*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version;
@@ -134,7 +140,7 @@ namespace Torrentizer
             _t.Private = checkPrivate.Checked;
             if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text);
             else _t.PieceLength = TorrentCreator.RecommendedPieceSize(soubory.Files);
-            Log.Log($"Piece length: {_t.PieceLength}");
+            Tracer.Trace(TracerLevel.Debug, $"Piece length: {_t.PieceLength}");
             // related: RSS
             if (!string.IsNullOrWhiteSpace(textRss.Text))
                 _t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
@@ -165,28 +171,28 @@ namespace Torrentizer
             _t.StoreMD5 = true;
 
             soubory.TorrentName = textTorrentName.Text;
-            _t.Hashed += t_Hashed;
-            Log.Log("Hashing...");
+            _t.Hashed += Hashed;
+            Tracer.Trace("Hashing...");
             _t.BeginCreate(soubory, AfterHashing, null);
         }
 
-        private void t_Hashed(object sender, TorrentCreatorEventArgs e)
+        private void Hashed(object sender, TorrentCreatorEventArgs e)
         {
             if (e.CurrentFile != _lastHashedFile)
 #if (DEBUG)
                 Log.Invoke((MethodInvoker) (() =>
                 {
-                    Log.Log($"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
+                    Tracer.Trace(TracerLevel.Debug, $"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
                     _lastHashedFile = e.CurrentFile;
                 }));
 #endif
             /*Log.Invoke((MethodInvoker)(() =>
             {
-                Log.Log(string.Format("Overall {0}% hashed", e.OverallCompletion));
+                Tracer.Trace(string.Format("Overall {0}% hashed", e.OverallCompletion));
             }));
             Log.Invoke((MethodInvoker)(() =>
             {
-                Log.Log(string.Format("Total data to hash: {0}", e.OverallSize));
+                Tracer.Trace(string.Format("Total data to hash: {0}", e.OverallSize));
             }));*/
             progressBar1.Invoke((MethodInvoker) (() => { progressBar1.Value = (int) e.OverallCompletion; }));
         }
@@ -203,12 +209,16 @@ namespace Torrentizer
             catch (Exception ex)
             {
 #if (DEBUG)
-                Log.Invoke((MethodInvoker) (() => { Log.Log($"Error creating torrent: {ex}"); }));
+                Log.Invoke((MethodInvoker) (() =>
+                {
+                    Tracer.Trace(TracerLevel.Error, $"Error creating torrent.");
+                    Tracer.Trace(ex);
+                }));
 #endif
             }
             Invoke((MethodInvoker) (() =>
             {
-                Log.Log("Finished creating torrent!");
+                Tracer.Trace("Finished creating torrent!");
                 Enabled = true;
                 MessageBox.Show(Resources.MainWindow_AfterHashing_TorrentCreated);
                 progressBar1.Value = 0;

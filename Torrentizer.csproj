@@ -38,6 +38,9 @@
     <StartupObject>Torrentizer.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ArachNGIN.Tracer, Version=17.7.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ArachNGIN.17.7.7.3\lib\ArachNGIN.Tracer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

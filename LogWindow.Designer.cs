@@ -35,6 +35,7 @@
             // 
             this.logBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logBox.FormattingEnabled = true;
+            this.logBox.HorizontalScrollbar = true;
             this.logBox.Location = new System.Drawing.Point(0, 0);
             this.logBox.Name = "logBox";
             this.logBox.Size = new System.Drawing.Size(436, 323);
