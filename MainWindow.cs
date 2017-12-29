@@ -67,11 +67,12 @@ namespace Torrentizer
 
         private static long GetPieceLength(string inText)
         {
+            var intext = inText;
             // don't bother with auto mode
-            if (inText.ToLower() == "auto") return 0;
+            if (intext.ToLowerInvariant() == "auto") return 0;
             // replacing useless stuff first
-            inText = inText.Replace(" ", "").ToLower();
-            var justNumbers = inText.Replace("kb", "");
+            intext = intext.Replace(" ", "").ToLower();
+            var justNumbers = intext.Replace("kb", "");
             justNumbers = justNumbers.Replace("mb", "");
             justNumbers = justNumbers.Replace("gb", "");
             long number;
@@ -84,7 +85,7 @@ namespace Torrentizer
                 number = 0;
             }
             var justUnits = string.Empty;
-            foreach (var c in inText)
+            foreach (var c in intext)
                 if (!char.IsNumber(c)) justUnits += c;
             switch (justUnits)
             {
