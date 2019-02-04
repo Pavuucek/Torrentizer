@@ -26,7 +26,8 @@ namespace Torrentizer
 {
     public partial class LogWindow : Form, ITracerHandler
     {
-        public bool AddToTop = true;
+        public bool AddToTop { get; set; } = true;
+
 
         public LogWindow()
         {
@@ -51,11 +52,14 @@ namespace Torrentizer
                 logBox.Items.Add(what);
                 logBox.TopIndex = logBox.Items.Count - 1;
             }
+
             Application.DoEvents();
+#else
+// Don't log anything in release configuration
 #endif
         }
 
-        private readonly IMessageFormat _messageFormat =
+        private readonly IMessageFormat messageFormat =
 #if (DEBUG)
                 new DebugMessageFormat()
 #else
@@ -65,7 +69,7 @@ namespace Torrentizer
 
         public void Trace(TracerMessage tracerMessage)
         {
-            Log(_messageFormat.Format(tracerMessage));
+            Log(messageFormat.Format(tracerMessage));
         }
     }
 }

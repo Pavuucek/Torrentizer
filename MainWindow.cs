@@ -21,6 +21,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 using ArachNGIN.Tracer;
 using ArachNGIN.Tracer.Helpers;
@@ -33,9 +34,9 @@ namespace Torrentizer
 {
     public partial class MainWindow : Form
     {
-        public readonly LogWindow Log = new LogWindow();
-        private string _lastHashedFile = string.Empty;
-        private TorrentCreator _t;
+        private readonly LogWindow log = new LogWindow();
+        private string lastHashedFile = string.Empty;
+        private TorrentCreator t;
 
         public MainWindow()
         {
@@ -45,7 +46,7 @@ namespace Torrentizer
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            Log.AddToTop = false;
+            log.AddToTop = false;
             Tracer.Trace(
                 $"App Startup, version { /*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}");
         }
@@ -53,7 +54,7 @@ namespace Torrentizer
         private void MainWindow_Shown(object sender, EventArgs e)
         {
 #if(DEBUG)
-            Log.Show();
+            log.Show();
 #endif
             Focus();
             comboPieceLength.SelectedIndex = 0;
@@ -61,8 +62,8 @@ namespace Torrentizer
 
         private void MainWindow_Move(object sender, EventArgs e)
         {
-            Log.Left = Right;
-            Log.Top = Top;
+            log.Left = Right;
+            log.Top = Top;
         }
 
         private static long GetPieceLength(string inText)
@@ -84,21 +85,18 @@ namespace Torrentizer
             {
                 number = 0;
             }
-            var justUnits = string.Empty;
+
+            var sb = new StringBuilder();
             foreach (var c in intext)
-                if (!char.IsNumber(c)) justUnits += c;
-            switch (justUnits)
-            {
-                case "kb":
-                    number = number * 1024;
-                    break;
-                case "mb":
-                    number = number * 1024 * 1024;
-                    break;
-                case "gb":
-                    number = number * 1024 * 1024 * 1024;
-                    break;
-            }
+                if (!char.IsNumber(c))
+                    sb.Append(c);
+            var justUnits = sb.ToString();
+            if (justUnits == "kb")
+                number = number * 1024;
+            else if (justUnits == "mb")
+                number = number * 1024 * 1024;
+            else if (justUnits == "gb") number = number * 1024 * 1024 * 1024;
+
             return number;
         }
 
@@ -110,11 +108,13 @@ namespace Torrentizer
                 MessageBox.Show(Resources.MainWindow_btnCreate_Click_SelectFileOrFolder);
                 return;
             }
+
             if (string.IsNullOrWhiteSpace(textTrackers.Text))
             {
                 MessageBox.Show(Resources.MainWindow_btnCreate_Click_AtLeastOneTrackerRequired);
                 return;
             }
+
             // we want user to wait patiently so disable everything
             Enabled = false;
 
@@ -125,66 +125,70 @@ namespace Torrentizer
                 Enabled = true;
                 return;
             }
+
             // try to guess torrent name and add .torrent extension
             Tracer.Trace("Adding files...");
             var soubory = new TorrentFileSource(comboAdd.Text);
             Tracer.Trace($"... will contain {soubory.Files.Count()} files.");
             dialogSaveTorrent.FileName = soubory.TorrentName + ".torrent";
-            
+
             // let's go!
             Tracer.Trace("Creating torrent " + dialogSaveTorrent.FileName);
 
-            _t = new TorrentCreator();
-            _t.SetCustom(new BEncodedString("name"), new BEncodedString(dialogSaveTorrent.FileName));
-            _t.CreatedBy = Application.ProductName + " " + /*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version;
+            t = new TorrentCreator();
+            t.SetCustom(new BEncodedString("name"), new BEncodedString(dialogSaveTorrent.FileName));
+            t.CreatedBy = Application.ProductName + " " + /*Application.ProductVersion*/
+                           Assembly.GetExecutingAssembly().GetName().Version;
             // is private?
-            _t.Private = checkPrivate.Checked;
-            if (GetPieceLength(comboPieceLength.Text) > 0) _t.PieceLength = GetPieceLength(comboPieceLength.Text);
-            else _t.PieceLength = TorrentCreator.RecommendedPieceSize(soubory.Files);
-            Tracer.Trace(TracerLevel.Debug, $"Piece length: {_t.PieceLength}");
+            t.Private = checkPrivate.Checked;
+            if (GetPieceLength(comboPieceLength.Text) > 0) t.PieceLength = GetPieceLength(comboPieceLength.Text);
+            else t.PieceLength = TorrentCreator.RecommendedPieceSize(soubory.Files);
+            Tracer.Trace(TracerLevel.Debug, $"Piece length: {t.PieceLength}");
             // related: RSS
             if (!string.IsNullOrWhiteSpace(textRss.Text))
-                _t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
+                t.SetCustom(new BEncodedString("rss"), new BEncodedString(textRss.Text));
             // related: web
             if (!string.IsNullOrWhiteSpace(textWeb.Text))
-                _t.SetCustom(new BEncodedString("website"), new BEncodedString(textWeb.Text));
+                t.SetCustom(new BEncodedString("website"), new BEncodedString(textWeb.Text));
             // related: similar torrents
             if (!string.IsNullOrWhiteSpace(textRelatedTorrents.Text))
-                _t.SetCustom(new BEncodedString("similar_torrents"), new BEncodedString(textRelatedTorrents.Text));
+                t.SetCustom(new BEncodedString("similar_torrents"), new BEncodedString(textRelatedTorrents.Text));
             // trackers
             foreach (var line in textTrackers.Lines)
-                _t.Announces.Add(new RawTrackerTier(new[] {line}));
+                t.Announces.Add(new RawTrackerTier(new[] {line}));
             // webseeds
             if (!string.IsNullOrWhiteSpace(textWebSeeds.Text))
             {
                 var be = new BEncodedList();
                 foreach (var line in textWebSeeds.Lines)
                     be.Add(new BEncodedString(line));
-                _t.SetCustom(new BEncodedString("url-list"), be);
+                t.SetCustom(new BEncodedString("url-list"), be);
             }
+
             // comment
-            if (!string.IsNullOrWhiteSpace(textComment.Text)) _t.Comment = textComment.Text;
+            if (!string.IsNullOrWhiteSpace(textComment.Text)) t.Comment = textComment.Text;
             // publisher, example: Michal via Torrentizer version 1.0.0.0
-            _t.Publisher = $"{Environment.UserName} via {Application.ProductName} version {/*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}";
+            t.Publisher =
+                $"{Environment.UserName} via {Application.ProductName} version { /*Application.ProductVersion*/Assembly.GetExecutingAssembly().GetName().Version}";
             // shameless ad goes here:
-            _t.PublisherUrl = "http://github.com/pavuucek/Torrentizer";
+            t.PublisherUrl = "http://github.com/pavuucek/Torrentizer";
             // not sure what this does...
-            _t.StoreMD5 = true;
+            t.StoreMD5 = true;
 
             soubory.TorrentName = textTorrentName.Text;
-            _t.Hashed += Hashed;
+            t.Hashed += Hashed;
             Tracer.Trace("Hashing...");
-            _t.BeginCreate(soubory, AfterHashing, null);
+            t.BeginCreate(soubory, AfterHashing, null);
         }
 
         private void Hashed(object sender, TorrentCreatorEventArgs e)
         {
-            if (e.CurrentFile != _lastHashedFile)
+            if (e.CurrentFile != lastHashedFile)
 #if (DEBUG)
-                Log.Invoke((MethodInvoker) (() =>
+                log.Invoke((MethodInvoker) (() =>
                 {
                     Tracer.Trace(TracerLevel.Debug, $"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
-                    _lastHashedFile = e.CurrentFile;
+                    lastHashedFile = e.CurrentFile;
                 }));
 #endif
             /*Log.Invoke((MethodInvoker)(() =>
@@ -204,19 +208,20 @@ namespace Torrentizer
             {
                 using (var stream = File.OpenWrite(dialogSaveTorrent.FileName))
                 {
-                    _t.EndCreate(ar, stream);
+                    t.EndCreate(ar, stream);
                 }
             }
             catch (Exception ex)
             {
 #if (DEBUG)
-                Log.Invoke((MethodInvoker) (() =>
+                log.Invoke((MethodInvoker) (() =>
                 {
-                    Tracer.Trace(TracerLevel.Error, $"Error creating torrent.");
+                    Tracer.Trace(TracerLevel.Error, "Error creating torrent.");
                     Tracer.Trace(ex);
                 }));
 #endif
             }
+
             Invoke((MethodInvoker) (() =>
             {
                 Tracer.Trace("Finished creating torrent!");
@@ -243,6 +248,5 @@ namespace Torrentizer
                 textTorrentName.Text = new DirectoryInfo(dialogAddFolder.SelectedPath).Name;
             }
         }
-
     }
 }
