@@ -32,17 +32,14 @@ namespace Torrentizer
         public LogWindow()
         {
             InitializeComponent();
-#if (DEBUG)
             Tracer.CurrentLevel = TracerLevel.Trace;
             Tracer.AddHandler(new DebugHandler());
             Tracer.AddHandler(this);
             Tracer.AddHandler(new FileHandler(new DebugMessageFormat()));
-#endif
         }
 
         private void Log(string what)
         {
-#if (DEBUG)
             if (AddToTop)
             {
                 logBox.Items.Insert(0, what);
@@ -54,18 +51,9 @@ namespace Torrentizer
             }
 
             Application.DoEvents();
-#else
-// Don't log anything in release configuration
-#endif
         }
 
-        private readonly IMessageFormat messageFormat =
-#if (DEBUG)
-                new DebugMessageFormat()
-#else
-                new DefaultMessageFormat()
-#endif
-            ;
+        private readonly IMessageFormat messageFormat = new DebugMessageFormat();
 
         public void Trace(TracerMessage tracerMessage)
         {
