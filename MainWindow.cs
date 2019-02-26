@@ -18,6 +18,7 @@
 
 using System;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -72,7 +73,7 @@ namespace Torrentizer
             // don't bother with auto mode
             if (intext.ToLowerInvariant() == "auto") return 0;
             // replacing useless stuff first
-            intext = intext.Replace(" ", "").ToLower();
+            intext = intext.Replace(" ", "").ToLower(CultureInfo.InvariantCulture);
             var justNumbers = intext.Replace("kb", "");
             justNumbers = justNumbers.Replace("mb", "");
             justNumbers = justNumbers.Replace("gb", "");
@@ -176,30 +177,19 @@ namespace Torrentizer
             t.StoreMD5 = true;
 
             soubory.TorrentName = textTorrentName.Text;
-            t.Hashed += Hashed;
+            t.Hashed += (o, args) =>
+            {
+                if (args.CurrentFile != lastHashedFile)
+                    log.Invoke((MethodInvoker) (() =>
+                    {
+                        Tracer.Trace(TracerLevel.Debug,
+                            $"Hashing file {Math.Round(args.FileCompletion)}% {args.CurrentFile}");
+                        lastHashedFile = args.CurrentFile;
+                    }));
+                progressBar1.Invoke((MethodInvoker) (() => { progressBar1.Value = (int) args.OverallCompletion; }));
+            };
             Tracer.Trace("Hashing...");
             t.BeginCreate(soubory, AfterHashing, null);
-        }
-
-        private void Hashed(object sender, TorrentCreatorEventArgs e)
-        {
-            if (e.CurrentFile != lastHashedFile)
-#if (DEBUG)
-                log.Invoke((MethodInvoker) (() =>
-                {
-                    Tracer.Trace(TracerLevel.Debug, $"Hashing file {Math.Round(e.FileCompletion)}% {e.CurrentFile}");
-                    lastHashedFile = e.CurrentFile;
-                }));
-#endif
-            /*Log.Invoke((MethodInvoker)(() =>
-            {
-                Tracer.Trace(string.Format("Overall {0}% hashed", e.OverallCompletion));
-            }));
-            Log.Invoke((MethodInvoker)(() =>
-            {
-                Tracer.Trace(string.Format("Total data to hash: {0}", e.OverallSize));
-            }));*/
-            progressBar1.Invoke((MethodInvoker) (() => { progressBar1.Value = (int) e.OverallCompletion; }));
         }
 
         private void AfterHashing(IAsyncResult ar)
@@ -213,13 +203,11 @@ namespace Torrentizer
             }
             catch (Exception ex)
             {
-#if (DEBUG)
                 log.Invoke((MethodInvoker) (() =>
                 {
                     Tracer.Trace(TracerLevel.Error, "Error creating torrent.");
                     Tracer.Trace(ex);
                 }));
-#endif
             }
 
             Invoke((MethodInvoker) (() =>
